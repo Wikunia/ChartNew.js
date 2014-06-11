@@ -36,6 +36,29 @@ defCanvasHeight=600;
 //       scaleShowLabels : true,
     }
 
+var lineData = {
+	labels : ["01.01.2008","01.02.2008","06.02.2008","05.03.2008","24.04.2008","02.05.2008","21.07.2008"],
+	datasets : [
+		{
+			fillColor : "rgba(220,220,220,0.5)",
+			strokeColor : "rgba(220,220,220,1)",
+			pointColor : "rgba(220,220,220,1)",
+			pointStrokeColor : "#fff",
+			data : [10,20,22,23,21,24,34],
+      title : "pFirst data"
+		},
+		{
+			fillColor : "rgba(151,187,205,0.5)",
+			strokeColor : "rgba(151,187,205,1)",
+			pointColor : "rgba(151,187,205,1)",
+			pointStrokeColor : "#fff",
+			data : [12,15,17,15,14,23,32],
+      title : "pSecond data"
+		}
+	]
+}
+
+
 var mydata1 = {
 	labels : ["January","February","March","April","May","June","July"],
 	datasets : [
@@ -631,6 +654,13 @@ var crosstxt4 = {
       dynamicDisplay : true                
 }
 
+lineOpts = {
+	dateScale : true,
+	animation : false,
+	datasetFill : false,
+	annotateDisplay : true,
+	bezierCurve: true
+}
 
 
 </SCRIPT>
@@ -671,6 +701,8 @@ var crosstxt4 = {
     setopts=onlyborderopts;
     setopts=noopts;
     setopts=newopts;
+		
+	
 //    setopts=nooptions;
     
 
@@ -678,7 +710,7 @@ window.onload = function() {
 
 
     if(1==1) {
-    var myLine = new Chart(document.getElementById("canvas_line").getContext("2d")).Line(mydata1,setopts);
+    var myLine = new Chart(document.getElementById("canvas_line").getContext("2d")).Line(lineData,lineOpts);
     var myLine = new Chart(document.getElementById("canvas_bar").getContext("2d")).Bar(mydata1,setopts);
     var myLine = new Chart(document.getElementById("canvas_stackedbar").getContext("2d")).StackedBar(mydata1,setopts);
     var myLine = new Chart(document.getElementById("canvas_horizontalbar").getContext("2d")).HorizontalBar(mydata1,setopts);
